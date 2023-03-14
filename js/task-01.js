@@ -1,26 +1,23 @@
+const categoriesByID = document.getElementById("categories");
+const categoryItems = categoriesByID.querySelectorAll("li.item");
 //task 1.1: count all categories
-const categoriesArray = document.querySelectorAll("li.item");
-const numberOfCategories = categoriesArray.length;
+const numberOfCategories = categoryItems.length;
 console.log("Number of categories: " + numberOfCategories);
 
 //task 1.2: display every category and number of items inside of it
-let categoryAndItemNames = [];
-for (let i = 0; i < numberOfCategories; i++) {
-  categoryAndItemNames.push(categoriesArray[i].textContent);
-  console.log(categoriesArray[i]);
-}
-
-let categoriesArrayChildren = [];
-for (let i = 0; i < numberOfCategories; i++) {
-    categoriesArrayChildren.push(categoriesArray[i].children);
-    console.log(categoriesArrayChildren[i]);
+let categoriesAndItemsTextArray = [];
+for (let i = 0; i < categoryItems.length; i++) {
+  if (categoryItems[i].nodeName === "LI") {
+    categoriesAndItemsTextArray[i] = categoryItems[i].innerText;
   }
-/*
-for (let i = 0; i < numberOfCategories; i++) {
-  console.log(categoryNamesAndItemCount[i]);
+}
+let arrayOfCategoryArrays = [];
+for(let i = 0; i < categoriesAndItemsTextArray.length; i++) 
+{
+  arrayOfCategoryArrays[i] = categoriesAndItemsTextArray[i].split("\n");   
 }
 
-/*
-for (let i = 0; i < numberOfCategories; i++) {
-    console.log(categoriesArray[i].children);
-}*/
+for(let i = 0; i<arrayOfCategoryArrays.length; i++) {
+    console.log("Category: " + arrayOfCategoryArrays[i][0]);
+    console.log("Elements: " + (arrayOfCategoryArrays[i].length-1));
+}
