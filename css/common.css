@@ -33,3 +33,9 @@ button {
   min-height: 400px;
   padding: 20px;
 }
+
+#boxes {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
