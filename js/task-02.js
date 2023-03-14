@@ -6,9 +6,13 @@ const ingredients = [
   "Herbs",
   "Condiments",
 ];
+
+const ingredientList = document.createDocumentFragment();
 for (let i = 0; i < ingredients.length; i++) {
-  const ingredientList = document.createElement("li");
-  ingredientList.innerHTML = ingredients[i];
-  ingredientList.setAttribute("class", "item");
-  document.getElementById("ingredients").appendChild(ingredientList);
+  const singleIngredient = document.createElement("li");
+  singleIngredient.textContent = ingredients[i];
+  singleIngredient.setAttribute("class", "item");
+  ingredientList.appendChild(singleIngredient);
 }
+
+document.getElementById("ingredients").appendChild(ingredientList);
