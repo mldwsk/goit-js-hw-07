@@ -25,11 +25,11 @@ button {
 
 .gallery {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: black;
   justify-content: center;
   align-items: center;
   min-height: 400px;
-  padding: 10px;
-  flex-direction: column;
-  flex-wrap: wrap;
-  flex-flow: column-reverse;
+  padding: 20px;
 }
