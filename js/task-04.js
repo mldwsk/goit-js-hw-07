@@ -45,5 +45,5 @@ inputArea.addEventListener("input", (event) => {
   console.log(specifiedAmount);
 });
 
-createButton.addEventListener("click", createBoxes(specifiedAmount));
+createButton.addEventListener("click", function(){createBoxes(specifiedAmount)});
 destroyButton.addEventListener("click", destroyBoxes);
