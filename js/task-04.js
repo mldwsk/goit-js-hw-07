@@ -1,3 +1,7 @@
+const createButton = document.querySelector("[data-create]");
+const destroyButton = document.querySelector("[data-destroy]");
+const inputArea = document.querySelector("input");
+
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
@@ -19,31 +23,8 @@ function createBoxes(amount) {
 }
 
 function destroyBoxes() {
-  const listOfBoxes = document.getElementById("boxes");
-  while (listOfBoxes.hasChildNodes()) {
-    listOfBoxes.removeChild(listOfBoxes.firstChild);
-  }
+  document.getElementById("boxes").innerHTML = '';
 }
 
-const createButton = document.querySelector("[data-create]");
-const destroyButton = document.querySelector("[data-destroy]");
-const inputArea = document.querySelector("input");
-let specifiedAmount = 0;
-
-inputArea.addEventListener("input", (event) => {
-  event.preventDefault();
-  const chosenAmount = event.currentTarget;
-  if (chosenAmount.value >= 1 && chosenAmount.value <= 99) {
-    specifiedAmount = chosenAmount.value;
-  } else if (chosenAmount.value > 100) {
-    specifiedAmount = 100;
-  } else if (chosenAmount.value < 0) {
-    specifiedAmount = 1;
-  } else {
-    specifiedAmount = 0;
-  }
-  console.log(specifiedAmount);
-});
-
-createButton.addEventListener("click", function(){createBoxes(specifiedAmount)});
+createButton.addEventListener("click", () => createBoxes(inputArea.value));
 destroyButton.addEventListener("click", destroyBoxes);
